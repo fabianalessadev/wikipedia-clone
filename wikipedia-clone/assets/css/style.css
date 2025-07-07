@@ -1,0 +1,373 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+ul {
+    list-style: none;
+    padding-left: 5px;
+    margin-bottom: 20px; /* Adicionado para espaçamento entre blocos de lista */
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+/* HEADER - Estilos para o logo e o nome */
+.site-header {
+    background-color: #f9f9fb; /* Fundo do cabeçalho */
+    padding: 15px;
+    border-bottom: solid 1px #cdcdcd;
+    display: flex; /* Para alinhar logo/nome e busca */
+    justify-content: space-between; /* Espaço entre logo/nome e busca */
+    align-items: center;
+}
+
+.header-main { /* Contêiner do logo e nome */
+    display: flex;
+    align-items: center;
+}
+
+.site-logo-link { /* O link que envolve a imagem e o título */
+    display: flex; /* Para alinhar a imagem e o título lado a lado */
+    align-items: center;
+    gap: 15px; /* Espaço entre a imagem e o texto */
+    text-decoration: none; /* Remove sublinhado do link */
+    color: inherit; /* Herda a cor do texto */
+}
+
+.site-title { /* O nome do site (h1) */
+    font-size: 2em; /* Ajuste o tamanho da fonte conforme necessário */
+    margin: 0; /* Remove margens padrão do h1 */
+    color: #333; /* Cor do título */
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px; /* Manter padding, mas ajustar margem */
+    /* margin-top: -50px; -- Removido, pois o header agora gerencia o layout */
+}
+
+.search input {
+    padding: 8px;
+    width: 250px;
+    border: solid 1px #cdcdcd;
+    border-radius: 5px;
+    font-size: 16px;
+    max-width: 100%;
+}
+
+.search button {
+    padding: 8px 12px;
+    margin-left: -2px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* CONTENT - Estilos para o layout principal (main) */
+main.content { /* O main agora é o flex container principal */
+    display: grid;
+    grid-template-areas: "sidebar main-content-article anchors";
+    grid-template-columns: minmax(0,15rem) minmax(0,2.5fr) minmax(0,15rem);
+    gap: 3rem; /* Espaçamento entre as colunas */
+    max-width: 1440px; /* Mantido o max-width original */
+    margin: auto; /* Centraliza o conteúdo */
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 20px; /* Adicionado padding superior para conteúdo */
+    padding-bottom: 20px; /* Adicionado padding inferior */
+}
+
+/* SIDEBAR - Estilos para a barra lateral esquerda */
+aside.sidebar {
+    /* width: 1500px; -- REMOVIDO: Conflita com grid-template-columns, 'minmax(0,15rem)' já define a largura */
+    background-color: #f4f4f4;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    height: 100vh; /* Pode precisar ajustar isso se o conteúdo for muito curto */
+    overflow-y: auto;
+    border: solid 1px #cdcdcd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    grid-area: sidebar; /* Define a área do grid */
+    border-right: solid 1px #cdcdcd; /* Mantido do original */
+    padding-right: 15px; /* Adicionado para garantir espaço se houver a borda direita */
+    text-align: left;
+}
+
+aside.sidebar h2 {
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+aside.sidebar ul {
+    padding: 0;
+    margin: 0; /* Removido margin-bottom global, já que essa UL está dentro de nav */
+}
+
+aside.sidebar ul li {
+    margin: 15px 0; /* Mantido do original */
+}
+
+aside.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+
+aside.sidebar ul li a:hover {
+    color: #000000;
+}
+
+/* MAIN CONTENT ARTICLE - Estilos para o artigo principal */
+article.main-content-article { /* Agora é article.main-content-article */
+    grid-area: main-content-article; /* Define a área do grid */
+    /* flex: 1; -- REMOVIDO: O grid-template-columns já gerencia o tamanho */
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 50px; /* Mantido do original */
+}
+
+section { /* Regras para seções dentro do artigo */
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+
+/* FOOTER - Estilos para o rodapé */
+footer.site-footer { /* Alterado para footer.site-footer */
+    min-height: 100px;
+    border-top: solid 1px #cdcdcd;
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    color: #333;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px 0;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #000000;
+}
+
+.footer-section ul {
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin: 8px 0;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+    color: #000000;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+    color: #666;
+}
+
+/* ANCHORS - Estilos para a barra lateral direita */
+aside.anchors { /* Agora é aside.anchors */
+    grid-area: anchors; /* Define a área do grid */
+    border-left: solid 1px #cdcdcd;
+    padding-left: 15px;
+}
+
+/* INFOBOX - Se for usar infobox, esses estilos são bons */
+.infobox {
+    width: 300px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex: 0 0 300px; /* Removido se estiver dentro do grid */
+}
+
+.infobox table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.infobox caption {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.infobox th, .infobox td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+}
+
+.infobox th {
+    background-color: #f4f4f4;
+    text-align: left;
+    width: 30%;
+}
+
+.infobox img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+/* FIGURE - Estilos para imagens com legendas */
+figure {
+    text-align: center;
+    margin: 1rem auto;
+    background-color: #f8f8f8;
+    padding: 1rem;
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+figure img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+
+figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* MEDIA QUERIES - Ajustes responsivos */
+@media screen and (max-width: 768px) {
+    main.content { /* Ajuste para o main em telas menores */
+        grid-template-areas:
+            "sidebar"
+            "main-content-article"
+            "anchors";
+        grid-template-columns: 1fr; /* Uma coluna */
+        width: 90%; /* Ajustado para telas menores */
+        padding: 0 10px; /* Ajuste o padding para não ter excesso */
+    }
+
+    .site-header {
+        flex-direction: column; /* Empilha logo/nome e busca */
+        text-align: center;
+    }
+
+    .site-logo-link {
+        justify-content: center; /* Centraliza logo e nome */
+        margin-bottom: 10px;
+    }
+
+    .search {
+        margin-top: 0; /* Remove margem negativa se houver */
+        width: 100%; /* Ocupa a largura total */
+    }
+
+    .search input {
+        width: 80%; /* Ajuste a largura do input na busca */
+        border-radius: 5px !important;
+    }
+
+    .search button {
+        display: none; /* Esconde o botão de busca se não for necessário */
+    }
+
+    aside.sidebar { /* Ajuste para o sidebar em telas menores */
+        width: 90%;
+        position: static; /* Não é sticky em telas pequenas */
+        height: auto; /* Altura automática */
+        border-right: none; /* Remove a borda direita */
+        border-bottom: solid 1px #cdcdcd; /* Adiciona borda inferior */
+        padding-right: 20px; /* Ajusta padding */
+        margin-bottom: 20px; /* Espaço entre sidebar e conteúdo principal */
+    }
+
+    aside.anchors { /* Ajuste para os anchors em telas menores */
+        border-left: none; /* Remove a borda esquerda */
+        border-top: solid 1px #cdcdcd; /* Adiciona borda superior */
+        padding-left: 0; /* Remove padding */
+        padding-top: 20px; /* Adiciona padding superior */
+    }
+
+    .infobox { /* Se a infobox for usada, ajuste para tela pequena */
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    nav.bar { /* Ajuste para a barra de navegação secundária */
+        overflow-x: auto; /* Permite rolagem horizontal se necessário */
+        justify-content: flex-start; /* Alinha à esquerda para rolagem */
+    }
+
+    nav.bar table {
+        width: auto; /* Permite que a tabela se ajuste ao conteúdo */
+        display: block; /* Para permitir rolagem horizontal do conteúdo da tabela */
+        white-space: nowrap; /* Impede que o texto quebre linha */
+    }
+
+    nav.bar tr {
+        display: inline-flex; /* Permite rolagem horizontal dos itens */
+        justify-content: flex-start;
+    }
+
+    nav.bar td {
+        padding: 8px;
+    }
+
+    figure {
+        padding: 0.5rem;
+        margin: 0.5rem 0;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-section {
+        min-width: 100%;
+        text-align: center;
+    }
+}
